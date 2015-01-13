@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   resources :articles
 
-  resources :users, except: [:index]
+  resources :users, except: [:index, :new]
 
-  resources :sessions, only: [:new, :create, :destroy]
+  get "/sign_up", to: "users#new"
+  resources :sessions, only: [:create, :destroy]
 
+  get "/login", to: "sessions#new", as: "login"
 end

@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_filter :find_article, except: [:index, :new, :create]
+  before_filter :logged_in? 
   def index
     @articles = Article.all
     @articles.each do |article|
