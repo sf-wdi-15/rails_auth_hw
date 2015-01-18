@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in?, only [:show]
+  before_action :logged_in?, only: [:show]
   
   def index
-  end
-
-  def show
+    @users = User.all
   end
 
   def new
@@ -13,18 +11,25 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    login(@user)
     redirect_to user_path(@user.id)
   end
 
   def show
+    @user_articles = current_user.articles
   end
 
   def edit
   end
 
+
   private
+
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation)
     end
 
+    def find_user
+      @user = User.find(params[:id])
+    end
 end

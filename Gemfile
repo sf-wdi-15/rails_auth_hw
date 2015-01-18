@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+  # Use 'dotenv-rails' for secrets
+  gem 'dotenv-rails'
+
 group :development, :test do
     # Replace irb with pry using pry-rails
     gem 'pry-rails'
