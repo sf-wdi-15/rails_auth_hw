@@ -1,0 +1,7 @@
+<h1>Articles#new</h1>
+<p>Find me in app/views/articles/new.html.erb</p>
+<%= form_for :article, url: '/articles', method: 'post' do |f| %>
+  <%= f.text_field  :title, placeholder: 'title' %>
+  <%= f.text_area :content, placeholder: 'content' %>
+  <%= f.submit 'save article' %>
+<% end %>
