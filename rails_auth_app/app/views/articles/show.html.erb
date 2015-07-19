@@ -1,0 +1,21 @@
+
+<%= link_to "EDIT", edit_article_path( @article) %>
+    <div>
+
+        Title: <%= @article.title %> <br>
+        Author: <%= @article.author %> <br>
+        Content: <%=  @article.content %>
+    </div>
+
+    <div>
+    	<% @keywordResults %>
+    	<h2>Keywords</h2>
+    </div>
+
+    <div>
+    	<% @keywordResults.each do |keyword| %>
+    	<h5 class="keyword"><%= keyword["text"] %></h5>
+    	<% end %>
+    </div>
+
+
